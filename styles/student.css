@@ -2,10 +2,6 @@
 
 
 @layer card {
-  .card-container{
-
-  }
-
   .card {
     background-color: #3B6B9B;
     color: white;
@@ -342,7 +338,6 @@
     font-size: clamp(2.5rem, 1.5vw, 1.4rem);
   }
 
-  /* GRID SYSTEM */
   .fieldset {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
