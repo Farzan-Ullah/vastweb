@@ -1,0 +1,388 @@
+@layer segment, container, site, heading;
+
+@layer container {
+  .container {
+    --_full: 100vw;
+    --_container-margin: 15px;
+    --_container-resistance: 0px;
+    --_preferred: calc(var(--_full) - (var(--_container-margin) - var(--_container-resistance)) * 2);
+    --_max: 3840px;
+    --_w: min(var(--_preferred), var(--_max));
+    position: relative;
+    width: var(--_w);
+    margin-inline: auto;
+
+    @media (width >= 768px) {
+      --_container-resistance: 100px;
+      --_container-margin: 19vw;
+    }
+    @media (width >= 996px) {
+      --_container-margin: 20vw;
+    }
+    @media (width >= 1280px) {
+      --_container-margin: 21vw;
+    }
+    @media (width >= 1366px) {
+      --_container-margin: 22vw;
+    }
+    @media (width >= 1536px) {
+      --_container-margin: 23vw;
+    }
+    @media (width >= 1920px) {
+      --_container-margin: 24vw;
+    }
+    @media (width >= 2600px) {
+      --_container-margin: 25vw;
+    }
+  }
+}
+
+@layer segment {
+  .segment {
+    display: block;
+    position: relative;
+
+    &>* {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .segment--bg-frost::before,
+  .segment--bg-clouds::before,
+  .segment--bg-lake-house::before,
+  .segment--bg-sea-spray::before,
+  .segment--bg-success::after,
+  .segment--bg-success-gradient::after,
+  .segment--bg-danger::after,
+  .segment--bg-danger-gradient::after,
+  .segment--bg-info::after,
+  .segment--bg-info-gradient::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    height: 100%;
+    width: 100%;
+    content: "";
+  }
+
+  .segment--bg-frost::before,
+  .segment--bg-clouds::before,
+  .segment--bg-lake-house::before,
+  .segment--bg-sea-spray::before {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .segment--bg-frost::before {
+    background-image: url(../../../img/decorative/segment_comp/bg-frost_1024.webp);
+  }
+
+  .segment--bg-clouds::before {
+    background-image: url(../../../img/decorative/segment_comp/bg-clouds_1024.webp);
+  }
+
+  .segment--bg-lake-house::before {
+    background-image: url(../../../img/decorative/segment_comp/bg-lake-house_1024.webp);
+  }
+
+  .segment--bg-sea-spray::before {
+    background-image: url(../../../img/decorative/segment_comp/bg-sea-spray_1024.webp);
+  }
+
+  .segment--bg-blur-1,
+  .segment--bg-blur-2,
+  .segment--bg-blur-3,
+  .segment--bg-blur-4,
+  .segment--bg-blur-5 {
+    overflow: hidden;
+  }
+
+  .segment--bg-blur-1::before {
+    top: -2rem;
+    left: -2rem;
+    height: calc(100% + (2 * 2rem));
+    width: calc(100% + (2 * 2rem));
+    filter: blur(2rem);
+  }
+
+  .segment--bg-blur-2::before {
+    top: -5rem;
+    left: -5rem;
+    height: calc(100% + (2 * 5rem));
+    width: calc(100% + (2 * 5rem));
+    filter: blur(5rem);
+  }
+
+  .segment--bg-blur-3::before {
+    top: -10rem;
+    left: -10rem;
+    height: calc(100% + (2 * 10rem));
+    width: calc(100% + (2 * 10rem));
+    filter: blur(10rem);
+  }
+
+  .segment--bg-blur-4::before {
+    top: -15rem;
+    left: -15rem;
+    height: calc(100% + (2 * 15rem));
+    width: calc(100% + (2 * 15rem));
+    filter: blur(15rem);
+  }
+
+  .segment--bg-blur-5::before {
+    top: -20rem;
+    left: -20rem;
+    height: calc(100% + (2 * 20rem));
+    width: calc(100% + (2 * 20rem));
+    filter: blur(20rem);
+  }
+
+  .segment--bg-success::after {
+    background-color: hsl(var(--hue-4), 30%, 60%);
+  }
+
+  .segment--bg-success-gradient::after {
+    background-color: hsl(var(--hue-4), 30%, 60%);
+    background-image: linear-gradient(hsl(var(--hue-1), 30%, 60%),
+        hsl(var(--hue-4), 30%, 60%));
+  }
+
+  .segment--bg-danger::after {
+    background-color: hsl(var(--hue-3), 30%, 60%);
+  }
+
+  .segment--bg-danger-gradient::after {
+    background-color: hsl(var(--hue-3), 30%, 60%);
+    background-image: linear-gradient(hsl(var(--hue-1), 30%, 60%),
+        hsl(var(--hue-3), 30%, 60%));
+  }
+
+  .segment--bg-info::after {
+    background-color: hsl(var(--hue-1), 30%, 60%);
+  }
+
+  .segment--bg-info-gradient::after {
+    background-color: hsl(var(--hue-1), 30%, 60%);
+    background-image: linear-gradient(hsl(var(--hue-1), 40%, 60%),
+        hsl(var(--hue-1), 50%, 40%));
+  }
+
+  .segment--bg-blend-color::after {
+    mix-blend-mode: color;
+  }
+
+  .segment--bg-blend-soft-light::after {
+    mix-blend-mode: soft-light;
+  }
+
+  .segment--bg-blend-multiply::after {
+    mix-blend-mode: multiply;
+  }
+
+  .segment--bg-blend-luminosity::after {
+    mix-blend-mode: luminosity;
+  }
+
+  .segment--skew-right,
+  .segment--skew-left {
+    padding-top: calc(100vw * .2);
+    padding-bottom: calc(100vw * .2);
+  }
+
+  @media only screen and (min-width: 1200px) {
+
+    .segment__segment--skew-right,
+    .segment__segment--skew-left {
+      padding-top: calc(100vw * .15);
+      padding-bottom: calc(100vw * .15);
+    }
+  }
+
+  .segment--skew-right {
+    clip-path: polygon(0 0,
+        100% calc(100vw * .1),
+        100% 100%,
+        0 calc(100% - (100vw * .1)));
+  }
+
+  .segment--skew-left {
+    clip-path: polygon(0 calc(100vw * .1),
+        100% 0,
+        100% calc(100% - (100vw * .1)),
+        0 100%);
+  }
+}
+
+@layer site {
+  .site {
+    &>.header {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+      background-color: hsl(var(--hue-3), 20%, 20%);
+      background-image: linear-gradient(0deg,
+          hsl(var(--hue-1), 50%, 15%) 6rem,
+          hsl(var(--hue-3), 70%, 75%));
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      &::before {
+        z-index: -1;
+        background-image: url(../img/decorative/header.webp);
+        background-position: center;
+        background-size: cover;
+        mix-blend-mode: overlay;
+        filter: blur(0.5rem);
+      }
+
+      &::after {
+        z-index: 1;
+        background-image: linear-gradient(0deg,
+            hsl(var(--hue-1), 50%, 15%) 2rem,
+            hsl(var(--hue-3), 70%, 75%, 0.25));
+      }
+
+      & .heading,
+      & .lead {
+        position: relative;
+        z-index: 2;
+        font-family: var(--fontMono);
+      }
+
+      & .heading {
+        padding-inline-start: 0.15ch;
+        font-size: clamp(9rem, 33vw, 16rem);
+        font-weight: 600;
+        letter-spacing: 0.075em;
+        line-height: 0.85;
+        text-align: center;
+      }
+
+      & .lead {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.075em;
+        line-height: 100%;
+        text-align: center;
+      }
+    }
+
+    &>.main {
+      position: relative;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: hsl(var(--hue-1), 50%, 15%);
+      }
+    }
+
+    &>.footer {
+      padding-top: 10em;
+      padding-bottom: 10rem;
+      background: hsl(var(--hue-1), 50%, 15%);
+      clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
+      font-size: 2rem;
+      color: hsl(var(--hue-3), 40%, 90%);
+
+      & h3 {
+        color: hsl(var(--hue-3), 100%, 80%);
+      }
+
+      & ul {
+        padding-left: 1.1em;
+        font-size: .8em;
+      }
+
+      & li {
+        position: relative;
+        padding-inline-start: .5ch;
+        margin-bottom: .5em;
+
+        @media (width >=480px) {
+          padding-inline-start: 1ch;
+        }
+
+        &::marker {
+          font-size: 1em;
+          color: hsl(var(--hue-3), 40%, 90%);
+          content: "\0025B7\200A";
+        }
+
+        &:hover::marker {
+          content: "\0025BA";
+        }
+
+        & a:hover {
+          box-shadow: inset 0 -2px hsl(var(--hue-3), 40%, 90%);
+          color: hsl(var(--hue-3), 20%, 90%);
+        }
+
+      }
+
+      & a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      & .social-media {
+        width: 5.5rem;
+        transform: scale(1);
+        line-height: 0;
+
+        &:hover {
+          transform: scale(1.1);
+
+          & path {
+            fill: hsl(var(--hue-3), 50%, 90%);
+          }
+        }
+
+        &:active,
+        &:focus {
+          transform: scale(0.95);
+        }
+
+        & path {
+          fill: hsl(var(--hue-3), 20%, 90%);
+        }
+      }
+    }
+  }
+}
+
+@layer heading {
+  .h2 {
+    font-size: 4rem;
+  }
+  .h3 {
+    font-size: 3.4rem;
+  }
+  .h4 {
+    font-size: 2.8rem;
+  }
+  .h5 {
+    font-size: 2.2rem;
+  }
+  .h6 {
+    font-size: 1.6rem;
+  }
+}

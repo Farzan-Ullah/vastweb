@@ -1,0 +1,175 @@
+@layer sizes, fonts, colors;
+
+@layer sizes {
+  :root {
+    --min-bp: 360;
+    --max-bp: 1536;
+    --active-bp: 360;
+    --min-rem-size: 62.5%;
+    --max-rem-size: 100%;
+    --default-font-size: calc(var(--min-rem-size) + ((var(--max-rem-size) - var(--min-rem-size)) / (var(--max-bp) - var(--min-bp)) * (var(--active-bp) - var(--min-bp))));
+    --global-factor: 0.25rem;
+  }
+
+  @media (width >= 480px) {
+    :root {
+      --active-bp: 480;
+    }
+  }
+
+  @media (width >= 576px) {
+    :root {
+      --active-bp: 576;
+    }
+  }
+
+  @media (width >= 768px) {
+    :root {
+      --active-bp: 768;
+    }
+  }
+
+  @media (width >= 996px) {
+    :root {
+      --active-bp: 996;
+    }
+  }
+
+  @media (width >= 1280px) {
+    :root {
+      --active-bp: 1280;
+    }
+  }
+
+  @media (width >= 1336px) {
+    :root {
+      --active-bp: 1336;
+    }
+  }
+
+  @media (width >= 1536px) {
+    :root {
+      --active-bp: 1536;
+    }
+  }
+}
+
+@layer colors {
+  :root {
+    --base-hue-1: 208;
+    --base-hue-2: 177;
+    --base-hue-3: 328;
+    --base-hue-4: 105;
+    --base-hue-5: 24;
+    --base-black: calc(var(--base-hue-1) + 22);
+    --shift: 0;
+    --hue-1: calc(var(--base-hue-1) + var(--shift));
+    --hue-2: calc(var(--base-hue-2) + var(--shift));
+    --hue-3: calc(var(--base-hue-3) + var(--shift));
+    --hue-4: calc(var(--base-hue-4) + var(--shift));
+    --hue-5: calc(var(--base-hue-5) + var(--shift));
+    --white-hue: var(--hue-1);
+    --white: hsl(var(--white-hue), 100%, 96%);
+    --black-hue: var(--base-black);
+    --black: hsl(var(--base-black), 8%, 14%);
+  }
+}
+
+@layer fonts {
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 200;
+    src: local(""),
+      url("../../fonts/poppins-v15-latin-ext_latin-200.woff2") format("woff2"),
+      url("../../fonts/poppins-v15-latin-ext_latin-200.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+      url("../../fonts/poppins-v15-latin-ext_latin-regular.woff2") format("woff2"),
+      url("../../fonts/poppins-v15-latin-ext_latin-regular.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    src: local(""),
+      url("../../fonts/poppins-v15-latin-ext_latin-600.woff2") format("woff2"),
+      url("../../fonts/poppins-v15-latin-ext_latin-600.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 800;
+    src: local(""),
+      url("../../fonts/poppins-v15-latin-ext_latin-800.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Fira Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+      url("../../fonts/fira-mono-v9-latin-regular.woff2") format("woff2"),
+      url("../../fonts/fira-mono-v9-latin-regular.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Fira Mono";
+    font-style: normal;
+    font-weight: 500;
+    src: local(""),
+      url("../../fonts/fira-mono-v9-latin-500.woff2") format("woff2"),
+      url("../../fonts/fira-mono-v9-latin-500.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Fira Mono";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""),
+      url("../../fonts/fira-mono-v9-latin-700.woff2") format("woff2"),
+      url("../../fonts/fira-mono-v9-latin-700.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Crimson";
+    font-style: italic;
+    font-weight: 500;
+    src: local(""),
+      url("../../fonts/crimson-pro-v14-latin-500italic.woff2") format("woff2"),
+      url("../../fonts/crimson-pro-v14-latin-500italic.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Dynalight";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+      url("../../fonts/dynalight-v11-latin-regular.woff2") format("woff2"),
+      url("../../fonts/dynalight-v11-latin-regular.woff") format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Great Vibes";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+      url("../../fonts/great-vibes-v8-latin-regular.woff2") format("woff2"),
+      url("../../fonts/great-vibes-v8-latin-regular.woff") format("woff");
+    font-display: swap;
+  }  
+  :root {
+    --fontStd: 1.6rem;
+    --fontSans: "Poppins", sans-serif;
+    --fontSerif: "Crimson", "Times", serif;
+    --fontMono: "Fira Mono", "Courier New", Courier, monospace;
+    --fontScript: "Great Vibes", serif;
+  }
+}

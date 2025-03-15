@@ -1,0 +1,12 @@
+.glass {
+  background-color: hsla(0, 0%, 100%, 1);
+}
+
+@supports (backdrop-filter: blur(0.4rem)) {
+  .glass {
+    --_blur: 0.4rem;
+    background-color: hsla(0, 0%, 100%, 0.5);
+    backdrop-filter: blur(var(--_blur));
+    -webkit-backdrop-filter: blur(var(--_blur));
+  }
+}

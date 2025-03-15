@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>VAST - Sign Up</title>
+  <meta name="description" content="This text will quite often be displayed beneath the page name in the search results" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="stylesheet" href="./styles/constants.css" />
+  <link rel="stylesheet" href="./styles/default.css" />
+  <link rel="stylesheet" href="./styles/commons.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
+  <link rel="stylesheet" href="./styles/student.css" />
+  <link rel="stylesheet" href="./styles/utilities.css" />
+  <link rel="stylesheet" href="./styles/theme.css" />
+  <link rel="stylesheet" href="./styles/grid.css" />
+</head>
+
+<body class="site" id="sign_up">
+  <main class="main">
+    <form class="container pt-50 mb-25 form" action="#" method="post" novalidate aria-labelledby="formHeading">
+      <h2 class="signup-heading c1-70-30 text-trns-upper mb-3">Sign <span class="c3-70-50">Up</span></h2>
+      <!-- <p class="help">Please fill out the form below to register. Fields marked with an asterisk (*) are required.</p> -->
+      <fieldset class="fieldset" aria-describedby="personal">
+        <!-- <p class="help" id="personal">Please enter your personal details:</p> -->
+        <legend class="legend">Personal Details</legend>
+        <div class="group" role="group">
+          <label class="label" for="firstName">First Name: *</label>
+          <input class="input" type="text" id="firstName" name="last_name" placeholder="John" aria-describedby="firstNameHelp" autocomplete="given-name" required pattern="^[a-zA-Z\s\-,.']+$">
+          <span class="error" aria-live="polite"></span>
+          <!-- <div class="help" id="firstNameHelp">Enter your first name</div> -->
+        </div>
+        <div class="group" role="group">
+          <label class="label" for="lastName">Last Name: *</label>
+          <input class="input" type="text" id="lastName" name="last_name" placeholder="Smith" aria-describedby="lastNameHelp" autocomplete="family-name" required pattern="^[a-zA-Z\s\-,.']+$">
+          <span class="error" aria-live="polite"></span>
+          <!-- <div class="help" id="lastNameHelp">Enter your last name</div> -->
+        </div>
+        <div class="group" role="group">
+          <label class="label" for="dob">Date of Birth: *</label>
+          <input class="input" type="date" id="dob" name="dob" placeholder="YYYY-MM-DD" autocomplete="bday" aria-describedby="dobHelp" required>
+          <span class="error" aria-live="polite"></span>
+          <!-- <div class="help" id="dobHelp">Select the date you were born in the form of YYYY-MM-DD</div> -->
+        </div>
+        <div class="group" role="group">
+          <label class="label" for="gender">Gender:</label>
+          <select class="select" id="gender" name="gender">
+            <option value="">--Select an option--</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset class="fieldset" aria-describedby="contact">
+        <!-- <p class="help" id="contact">Please enter your contact information:</p> -->
+        <legend class="legend">Contact information</legend>
+        <div class="group" role="group">
+          <label class="label" for="email">Email: *</label>
+          <input class="input" type="email" id="email" name="email" placeholder="john.smith@example.com" aria-describedby="emailHelp" autocomplete="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+          <span class="error" aria-live="polite"></span>
+          <!-- <div class="help" id="emailHelp">Enter your email address</div> -->
+        </div>
+        <div class="group" role="group">
+          <label class="label" for="confirmEmail">Confirm Email: *</label>
+          <input class="input" type="email" id="confirmEmail" name="confirm_email" placeholder="Confirm Email" aria-describedby="confirmEmailHelp" required>
+          <span class="error" aria-live="polite"></span>
+          <!-- <div class="help" id="confirmEmailHelp">Confirm your email address</div> -->
+        </div>
+      </fieldset>
+      <fieldset class="fieldset" aria-describedby="security">
+        <!-- <p class="help" id="security">Please enter your security information:</p> -->
+        <legend class="legend">Security information</legend>
+        <div class="group" role="group">
+          <label class="label" for="password">Password: *</label>
+          <input class="input" type="password" id="password" name="password" placeholder="8-24 characters" aria-describedby="passwordHelp" autocomplete="new-password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,24}$" required>
+          <span class="error" aria-live="polite"></span>
+          <!-- <div class="help" id="passwordHelp">Password must be 8-24 characters long and include at least one letter and one number</div> -->
+        </div>
+        <div class="group" role="group">
+          <label class="label" for="confirmPassword">Confirm Password: *</label>
+          <input class="input" type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm password" aria-describedby="confirmPasswordHelp" required>
+          <span class="error" aria-live="polite"></span>
+          <!-- <div class="help" id="confirmPasswordHelp">Type the same password you typed in the field above</div> -->
+        </div>
+      </fieldset>
+      <div class="buttons" aria-describedby="registration">
+        <p class="sr-only" id="registration">Please verify your details and register.</p>
+        <button class="button" type="reset">Clear</button>
+        <button class="button" type="submit">Register</button>
+        <p class="sr-only">After pressing the Register button, your information will be submitted.</p>
+      </div>
+    </form>
+  </main>
+  <script src="./js/custom.js" defer></script>
+  <script src="./control/control.js" defer></script>
+</body>
+
+</html>
