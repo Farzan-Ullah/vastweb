@@ -106,10 +106,60 @@
 
 }
 
+
 @layer thumbnail {
-  .thumbnail {
-    
-  }  
+  
+  .member-card {
+    background: #2a343e;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 4px;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .member-picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+
+  }
+
+  .member-header {
+    margin-top: 10px;
+  }
+
+
+  .member-name {
+    position: relative;
+    left: 5px;
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: left;
+    letter-spacing: 1px;
+  }
+
+  .member-email {
+    position: relative;
+    right: 5px;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 300;
+    font-style: italic;
+    text-align: right;
+    letter-spacing: 1px;
+  }
+
+  .member-email a {
+    color: #fff;
+  }
+
+
+ 
 }
 
 @layer accordion {

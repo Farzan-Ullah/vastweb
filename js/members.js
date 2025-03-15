@@ -1,46 +1,68 @@
 function memberThumbnail(member) {
   const thumbnail = `
-  <div class="col-12 ???" id="${member.eid}">
-    <header class="???">
-      <h4 class="???">${member.first_name} ${member.last_name}</h4>
-      <p class="???">
-        <a href="mailto:${member.mail}@du.se" title="Mail ${member.first_name} ${member.last_name}">${member.mail}@du.se</a>
-      </p>
-    </header>           
-    <div class="???">
-      <picture class="???"> 
-        <source
-          type="image/webp"
-          srcset="./img/informative/member/${member.id}/webp/${member.id}_256.webp ???,
-                  ./img/informative/member/${member.id}/webp/${member.id}_384.webp ???,
-                  ./img/informative/member/${member.id}/webp/${member.id}_512.webp ???"
-          sizes="(min-width: 996px) ???,
-                 (min-width: 768px) ???,
-                 (min-width: 480px) ???,
-                                    ???">
-        <source
-          type="image/jpg"
-          srcset="./img/informative/member/${member.id}/jpg/${member.id}_256.jpg ???,
-                  ./img/informative/member/${member.id}/jpg/${member.id}_384.jpg ???,
-                  ./img/informative/member/${member.id}/jpg/${member.id}_512.jpg ???"
-          sizes="(min-width: 996px) ???,
-                 (min-width: 768px) ???,
-                 (min-width: 480px) ???,
-                                    ???">
-        <img 
-          class="???"
-          src="./img/informative/member/${member.id}/jpg/${member.id}_512.jpg" 
-          width="512"
-          height="512"
-          alt="${member.alt}"
-          itemprop="image">
-      </picture>
-      <a class="???" href="./account.html" title="Link to ${member.first_name} ${member.last_name} profile">Go to profile</a>
-    </div>
+  <div class="col-12 col-xs-6 col-md-4 col-lg-3 member-card" id="${member.eid}">
+    <a class="profile-link" href="./account.html" title="Link to ${member.first_name} ${member.last_name} profile">
+      <header class="member-header">
+        <h4 class="member-name">${member.first_name} ${member.last_name}</h4>
+        <p class="member-email">
+          <a href="mailto:${member.mail}@du.se" title="Mail ${member.first_name} ${member.last_name}">
+            ${member.mail}@du.se
+          </a>
+        </p>
+      </header>           
+      <div class="member-body">
+        <picture class="member-picture"> 
+          <source
+            type="image/webp"
+            srcset="./img/informative/member/${member.id}/webp/${member.id}_256.webp 256w,
+                    ./img/informative/member/${member.id}/webp/${member.id}_384.webp 384w,
+                    ./img/informative/member/${member.id}/webp/${member.id}_512.webp 512w"
+            sizes="(min-width: 996px) 512px,
+                   (min-width: 768px) 384px,
+                   (min-width: 480px) 256px,
+                   100vw">
+          <source
+            type="image/jpeg"
+            srcset="./img/informative/member/${member.id}/jpg/${member.id}_256.jpg 256w,
+                    ./img/informative/member/${member.id}/jpg/${member.id}_384.jpg 384w,
+                    ./img/informative/member/${member.id}/jpg/${member.id}_512.jpg 512w"
+            sizes="(min-width: 996px) 512px,
+                   (min-width: 768px) 384px,
+                   (min-width: 480px) 256px,
+                   100vw">
+          <img 
+            class="member-image"
+            src="./img/informative/member/${member.id}/jpg/${member.id}_512.jpg" 
+            width="512"
+            height="512"
+            alt="${member.alt}"
+            itemprop="image">
+        </picture>
+      </div>
+    </a>
   </div>
   `;
   return thumbnail;
 }
+
+function toggleHeaderVisibility() {
+  const headerElements = document.querySelectorAll('.member-header');
+
+  if (window.innerWidth >= 768) { 
+    headerElements.forEach(header => {
+      header.style.display = 'none';
+    });
+  } else {
+    headerElements.forEach(header => {
+      header.style.display = '';
+    });
+  }
+}
+
+toggleHeaderVisibility();
+
+window.addEventListener('resize', toggleHeaderVisibility);
+
 
 function addMemberThumbnails(members) {
   let output = "";
@@ -49,6 +71,10 @@ function addMemberThumbnails(members) {
   });
   return output;
 }
+
+
+
+
 
 const gallery = document.querySelector(".gallery");
 
