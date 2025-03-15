@@ -1,7 +1,7 @@
 function memberThumbnail(member) {
   const thumbnail = `
   <div class="col-12 col-xs-6 col-md-4 col-lg-3 member-card" id="${member.eid}">
-    <a class="profile-link" href="./account.html" title="Link to ${member.first_name} ${member.last_name} profile">
+   
       <header class="member-header">
         <h4 class="member-name">${member.first_name} ${member.last_name}</h4>
         <p class="member-email">
@@ -11,6 +11,7 @@ function memberThumbnail(member) {
         </p>
       </header>           
       <div class="member-body">
+       <a class="profile-link" href="./account.html" title="Link to ${member.first_name} ${member.last_name} profile">
         <picture class="member-picture"> 
           <source
             type="image/webp"
@@ -30,6 +31,8 @@ function memberThumbnail(member) {
                    (min-width: 768px) 384px,
                    (min-width: 480px) 256px,
                    100vw">
+
+        
           <img 
             class="member-image"
             src="./img/informative/member/${member.id}/jpg/${member.id}_512.jpg" 
@@ -38,8 +41,9 @@ function memberThumbnail(member) {
             alt="${member.alt}"
             itemprop="image">
         </picture>
+         </a>
       </div>
-    </a>
+   
   </div>
   `;
   return thumbnail;
