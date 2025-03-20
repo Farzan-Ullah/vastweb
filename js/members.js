@@ -1,18 +1,18 @@
 function memberThumbnail(member) {
   const thumbnail = `
-  <div class="col-12 col-xs-6 col-md-4 col-lg-3 member-card" id="${member.eid}">
+  <div class="col-12 col-xs-6 col-md-4 col-lg-3 thumbnail" id="${member.eid}">
    
-      <header class="member-header">
-        <h4 class="member-name">${member.first_name} ${member.last_name}</h4>
-        <p class="member-email">
+      <header class="thumbnail-header">
+        <h4 class="thumbnail-name">${member.first_name} ${member.last_name}</h4>
+        <p class="thumbnail-email">
           <a href="mailto:${member.mail}@du.se" title="Mail ${member.first_name} ${member.last_name}">
             ${member.mail}@du.se
           </a>
         </p>
       </header>           
-      <div class="member-body">
+      <div class="thumbnail-body">
        <a class="profile-link" href="./account.html" title="Link to ${member.first_name} ${member.last_name} profile">
-        <picture class="member-picture"> 
+        <picture class="thumbnail-picture"> 
           <source
             type="image/webp"
             srcset="./img/informative/member/${member.id}/webp/${member.id}_256.webp 256w,
@@ -34,7 +34,7 @@ function memberThumbnail(member) {
 
         
           <img 
-            class="member-image"
+            class="thumbnail-image"
             src="./img/informative/member/${member.id}/jpg/${member.id}_512.jpg" 
             width="512"
             height="512"
@@ -50,7 +50,7 @@ function memberThumbnail(member) {
 }
 
 function toggleHeaderVisibility() {
-  const headerElements = document.querySelectorAll('.member-header');
+  const headerElements = document.querySelectorAll('.thumbnail-header');
 
   if (window.innerWidth >= 768) { 
     headerElements.forEach(header => {
@@ -77,6 +77,37 @@ function addMemberThumbnails(members) {
 }
 
 
+function enableHoverEffect() {
+  const thumbnails = document.querySelectorAll('.thumbnail');
+
+  if (window.innerWidth >= 768) {
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('mouseenter', addHoverEffect);
+      thumbnail.addEventListener('mouseleave', removeHoverEffect);
+    });
+  } else {
+    thumbnails.forEach(thumbnail => {
+      thumbnail.removeEventListener('mouseenter', addHoverEffect);
+      thumbnail.removeEventListener('mouseleave', removeHoverEffect);
+      thumbnail.style.transform = ''; 
+      thumbnail.style.boxShadow = '';
+    });
+  }
+}
+
+function addHoverEffect(event) {
+  event.currentTarget.style.transform = 'scale(1.07)';
+  event.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+}
+
+function removeHoverEffect(event) {
+  event.currentTarget.style.transform = '';
+  event.currentTarget.style.boxShadow = '';
+}
+
+
+enableHoverEffect();
+window.addEventListener('resize', enableHoverEffect);
 
 
 

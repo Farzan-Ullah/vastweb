@@ -3,22 +3,13 @@
 
 @layer card {
   .card {
-    background-color: #3B6B9B;
     color: white;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
-  .card.retoucher {
-    background-color: #2A9D8F;
-  }
-
-  .card.teacher {
-    background-color: #bf4084;
-  }
-  
   .card-header {
     display: flex;
     justify-content: space-between;
@@ -29,7 +20,6 @@
   .card-header span {
     display: block;
     color: #dfedff;
-    font-weight: 600;
     font-size: 1.5rem;
     text-transform: lowercase;
   }
@@ -37,9 +27,8 @@
   .card-header h3 {
     position: relative;
     top: 10px;
-    right: 10px;
-    font-size: 3rem;
-    font-weight: 600;
+    right: 0;
+    left: -6px;
     text-transform: uppercase;
     padding: 10px;
     text-align: left;
@@ -56,13 +45,6 @@
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
   }
 
-  .retoucher .card-icon {
-    background-color: #2A9D8F;
-  }
-
-  .teacher .card-icon {
-    background-color: #bf4084;
-  }
   
   .card-body {
     margin-bottom: 2rem;
@@ -71,23 +53,21 @@
     margin-top: 2.5rem;
     background: #e7f2ff;
     color: rgb(49, 49, 49);
-    padding: 20px 40px;
+    padding: 30px 40px;
   }
 
-  .teacher.col-lg-6 .card-body {
-    padding-bottom: 11.6rem;
-  }
-  
   .card-body p {
     margin-bottom: 1rem;
   }
+
   
   .card-button {
     background-color: white;
     color: rgb(46, 46, 46);
-    padding: 0.7rem 0.8rem;
-    border-radius: 10px;
+    padding: 0.9rem 2rem;
+    border-radius: 7px;
     font-weight: 500;
+    font-size: 1.4rem;
     transition: opacity 0.3s ease;
     text-decoration: none;
     display: inline-block;
@@ -97,6 +77,7 @@
   .card-footer{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
   }
   
 
@@ -105,7 +86,7 @@
 
 @layer thumbnail {
   
-  .member-card {
+  .thumbnail {
     background: #2a343e;
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -117,19 +98,19 @@
     width: 100%;
   }
 
-  .member-picture img {
+  .thumbnail-picture img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 
   }
 
-  .member-header {
+  .thumbnail-header {
     margin-top: 10px;
   }
 
 
-  .member-name {
+  .thumbnail-name {
     position: relative;
     left: 5px;
     font-size: 1.7rem;
@@ -139,7 +120,7 @@
     letter-spacing: 1px;
   }
 
-  .member-email {
+  .thumbnail-email {
     position: relative;
     right: 5px;
     font-size: 1.2rem;
@@ -150,10 +131,9 @@
     letter-spacing: 1px;
   }
 
-  .member-email a {
+  .thumbnail-email a {
     color: #fff;
   }
-
 
  
 }
@@ -312,9 +292,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 95%;
-    max-width: 1000px;
+    width: 85%;
+    max-width: 1300px;
     margin: auto;
+    container-type: inline-size;
+    container-name: form-container;
   }
 
   .signup-heading {
@@ -340,9 +322,15 @@
 
   .fieldset {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr;
     gap: 30px;
     width: 100%;
+  }
+
+  @container form-container (width > 927px) {
+    .fieldset {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .group {
@@ -389,13 +377,28 @@
     background-color: #3073c4;
     color: #fff;
   }
+
+  .help {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 }
+
 
 @layer subgrid {
  
   .subgrid {
     display: flex;
     flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: auto;
     gap: 10px;
     border-radius: 10px;
     max-width: 1200px;
@@ -422,7 +425,7 @@
 
   .d {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 10px;
     padding: 10px;
     background-color: #1b2d42;
@@ -440,4 +443,6 @@
     min-height: 90px;
     width: 100%;
   }
+
+  
 }
